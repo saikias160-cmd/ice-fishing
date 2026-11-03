@@ -23,9 +23,9 @@ jobs:
         uses: gradle/actions/setup-gradle@v4
         with:
           gradle-version: '8.11.1'
-      - name: Fix Java and Kotlin compatibility
+            - name: Find Gradle files
         run: |
-          sed -i 's/VERSION_1_8/VERSION_17/g' project/app/build.gradle
+          find . -maxdepth 6 -type f \( -name "build.gradle" -o -name "build.gradle.kts" \) -print
 
       - name: Build APK
         run: gradle assembleDebug
