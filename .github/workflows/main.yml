@@ -27,7 +27,10 @@ jobs:
       - name: Extract Android project
         run: |
           unzip -q IceFishingAITracker-Android-Source.zip -d project
-          cp -a project/. .
+          cp -a project/app .
+          cp project/build.gradle.kts .
+          cp project/gradle.properties .
+          cp project/settings.gradle.kts .
 
       - name: Build APK
         run: gradle assembleDebug
